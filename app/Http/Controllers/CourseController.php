@@ -25,7 +25,7 @@ class CourseController extends Controller
             'description'=>'required',
             'faculty'=>'required',
             'code'=>'required',
-            'ects'=>'required'
+            'ects'=>'required|numeric'
         ]);
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Models\Course;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,23 @@ Route::get('courses/create', [CourseController::class, 'form']);
 
 
 
-
 Route::get('courses/{course}', function() {
     return view('courses.show');
 })->name('courses.show');
+
+
+//post functions
+Route::post('/create', function (){
+   $course = new Course();
+
+    $course->name = request('name');
+    $course->description = request('description');
+    $course->faculty_id = request('faculty');
+    $course->code = request('code');
+    $course->ECTS = request('ects');
+
+    $course->save();
+
+    return redirect()->action([CourseController::class, 'index']);
+});
+

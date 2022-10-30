@@ -20,11 +20,16 @@ Route::redirect('/', 'courses')->name('home');
 
 
 
-
-Route::get('courses', function() {
+/*
+ *
+ * old index function from source code
+Route::get('/courses', function() {
     $faculties = Faculty::all();
     return view('courses.index')->with('faculties', $faculties);
 });
+
+*/
+Route::get('/courses', [CourseController::class, 'index']);
 
 //Creating route for the create form
 Route::get('courses/create', [CourseController::class, 'form']);

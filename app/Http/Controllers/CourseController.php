@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Faculty;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -28,8 +29,9 @@ class CourseController extends Controller
 
 
     function index(){
-        return view('courses.index', [
-            'courses' => Course::all()
-        ]);
+        $faculties = Faculty::all();
+        return view('courses.index')->with('faculties', $faculties);
+
+
     }
 }

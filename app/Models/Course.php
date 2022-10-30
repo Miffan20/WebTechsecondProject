@@ -5,18 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
+
 /**
  * @property int $id
  * @property string $name
  * @property string $code
  * @property string $description
+ * @property int $ects
+ *
  */
-class Faculty extends Model
+class Course extends Model
 {
     use HasFactory;
 
-    public function courses()
+    public function faculty()
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsTo(Faculty::class);
     }
 }

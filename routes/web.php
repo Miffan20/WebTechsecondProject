@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Route;
 
@@ -16,10 +17,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'courses')->name('home');
 
+
+
+
+
 Route::get('courses', function() {
     $faculties = Faculty::all();
     return view('courses.index')->with('faculties', $faculties);
 });
+
+//Creating route for the create form
+Route::get('courses/create', [CourseController::class, 'form']);
+
+
+
 
 Route::get('courses/{course}', function() {
     return view('courses.show');

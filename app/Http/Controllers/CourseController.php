@@ -16,19 +16,31 @@ class CourseController extends Controller
 
     }
 
-    public function getData(){
+    public function getData(Request $request){
+
+
+
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+            'faculty'=>'required',
+            'code'=>'required',
+            'ects'=>'required'
+        ]);
+
 
         $course = new Course();
 
-        $course->name = request('name');
-        $course->description = request('description');
-        $course->faculty_id = request('faculty');
-        $course->code = request('code');
-        $course->ECTS = request('ects');
+        $course->name = $request->get('name');
+        $course->description = $request->get('description');
+        $course->faculty_id = $request->get('faculty');
+        $course->code = $request->get('code');
+        $course->ECTS = $request->get('ects');
 
         $course->save();
 
-        return redirect()->route('courses.index');
+        return redirect()->route('courses.index'); //works to redirect to homepage
+        //return redirect()->action([CourseController::class, 'formRedirect'], ['id'=>$this]);
     }
 
 

@@ -43,7 +43,7 @@ Route::get('courses/{course}', function() {
 
 
 //post functions
-Route::post('/create', function (){
+Route::post('/courses', function (){
    $course = new Course();
 
     $course->name = request('name');

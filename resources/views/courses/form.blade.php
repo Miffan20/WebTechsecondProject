@@ -4,7 +4,7 @@
 <body>
 
 
-<form id="course-form" action="/create" method="POST">
+<form id="course-form" action="/courses" method="POST">
     @csrf
 
     <label for="coursename">Course name:</label><br>

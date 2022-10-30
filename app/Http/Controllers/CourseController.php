@@ -16,14 +16,14 @@ class CourseController extends Controller
 
         $course = new Course();
 
-
         $course->name = request('name');
-        $course->description = request('describtion');
-        $course->faculty = request('faculty');
+        $course->description = request('description');
+        $course->faculty_id = request('faculty');
         $course->code = request('code');
-        $course->ects = request('etcs');
+        $course->ECTS = request('ects');
 
         $course->save();
+
         return redirect()->route('courses.index');
     }
 

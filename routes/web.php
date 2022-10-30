@@ -30,10 +30,12 @@ Route::get('/courses', function() {
 });
 
 */
-Route::get('/courses', [CourseController::class, 'index']);
+Route::get('/courses', [CourseController::class, 'index'])
+    ->name('courses.index');
 
 //Creating route for the create form
-Route::get('courses/create', [CourseController::class, 'form']);
+Route::get('courses/create', [CourseController::class, 'form'])
+        ->name('courses.form');
 
 
 
@@ -43,17 +45,6 @@ Route::get('courses/{course}', function() {
 
 
 //post functions
-Route::post('/courses', function (){
-   $course = new Course();
-
-    $course->name = request('name');
-    $course->description = request('description');
-    $course->faculty_id = request('faculty');
-    $course->code = request('code');
-    $course->ECTS = request('ects');
-
-    $course->save();
-
-    return redirect()->action([CourseController::class, 'index']);
-});
+Route::post('/courses', [CourseController::class, 'getData'])
+    ->name("courses.store");
 

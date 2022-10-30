@@ -9,7 +9,11 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     public function form(){
-        return view('courses.form');
+
+        //You need to add faculties array to the view, in order to process it in the form.blade.php file
+        $faculties = Faculty::all();
+        return view('courses.form')->with('faculties', $faculties);
+
     }
 
     public function getData(){
@@ -28,10 +32,13 @@ class CourseController extends Controller
     }
 
 
-    function index(){
+    public function index(){
         $faculties = Faculty::all();
         return view('courses.index')->with('faculties', $faculties);
 
 
     }
+
+
+
 }

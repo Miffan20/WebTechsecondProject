@@ -21,6 +21,9 @@
 
     <label for="faculty">Faculty:</label><br>
     <select id="faculty" name="faculty">
+        @foreach($faculties as $faculty)
+            <option value="{{$faculty->id}}">{{ $faculty->name }}</option>
+        @endforeach
 
 
         {{--
@@ -37,7 +40,7 @@
                             <option value="{{$faculty['id']}}">{{$faculty['name']}}</option>
                         @endforeach
 
-        --}}
+
 
 
                 <option value="1">Faculty of Business and Social Sciences</option>
@@ -45,11 +48,11 @@
                 <option value="3">Faculty of Health Sciences</option>
                 <option value="4">Faculty of Humanities</option>
                 <option value="5">Faculty of Science</option>
-
+            --}}
 
     </select><br>
 
-    <label for="description">Describtion:</label><br>
+    <label for="description">Description:</label><br>
     <textarea id="description" name="description"></textarea>
 
 

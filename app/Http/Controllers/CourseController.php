@@ -40,7 +40,12 @@ class CourseController extends Controller
         $course->save();
 
         return redirect()->route('courses.index'); //works to redirect to homepage
-        //return redirect()->action([CourseController::class, 'formRedirect'], ['id'=>$this]);
+
+
+        //return redirect()->action([CourseController::class, 'formRedirect'], ['id'=>$this]); // this does not work
+
+
+        //return redirect()->route('courses.redirectForm'); //this has better chances
     }
 
 
@@ -49,6 +54,16 @@ class CourseController extends Controller
         return view('courses.index')->with('faculties', $faculties);
 
 
+    }
+
+    public function redirectForm(Course $course)
+    {
+        return view('course.show', ['course' => $course]);
+    }
+
+    public function show(Course $course)
+    {
+        dd($course);
     }
 
 

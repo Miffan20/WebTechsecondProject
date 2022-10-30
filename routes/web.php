@@ -39,6 +39,8 @@ Route::get('courses/create', [CourseController::class, 'form'])
 
 
 
+
+
 Route::get('courses/{course}', function() {
     return view('courses.show');
 })->name('courses.show');
@@ -47,4 +49,17 @@ Route::get('courses/{course}', function() {
 //post functions
 Route::post('/courses', [CourseController::class, 'getData'])
     ->name("courses.store");
+
+/*
+ // not used right now
+
+Route::get('/courses/{course}', [CourseController::class, 'redirectForm'])
+        ->name('courses.redirectFrom');
+*/
+
+
+//this view created the object, but needs to be redirected to a showpage
+
+Route::get('courses/{course} ', [CourseController::class, 'show']);
+
 

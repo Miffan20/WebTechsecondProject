@@ -4,7 +4,7 @@
 <body>
 
 
-<form id="course-form" action="/courses" method="POST">
+<form id="course-form" action="{{ asset('/courses') }}" method="POST">
     @csrf
 
     <label for="coursename">Course name:</label><br>
@@ -21,6 +21,7 @@
 
     <label for="faculty">Faculty:</label><br>
     <select id="faculty" name="faculty">
+
 
         {{--
                  Attempt 1:

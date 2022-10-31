@@ -53,7 +53,8 @@ class CourseController extends Controller
     public function index(){
         $faculties = Faculty::all();
         $courses = Course::all();
-        return view('courses.index')->with('faculties', $faculties) ;
+        return view('courses.index')->with('courses', $courses)->with('faculties',$faculties); //this needs to be with $courses aswell
+        //followed this video https://laracasts.com/series/laravel-8-from-scratch/episodes/20
 
 
     }

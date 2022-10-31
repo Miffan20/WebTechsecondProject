@@ -10,7 +10,7 @@
                     @endforeach
                 </ul>
                 <div class="mt-3 d-grid">
-                    <a href="#" class="btn btn-success" id="create-course">Create Course</a>
+                    <a href="/courses/create" class="btn btn-success" id="create-course">Create Course</a>
                 </div>
             </div>
             <div class="col">

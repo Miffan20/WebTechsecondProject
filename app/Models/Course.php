@@ -19,4 +19,10 @@ class Course extends Model
 {
     use HasFactory;
 
+
+    public function faculty()
+    {
+        //Can be hasOne, hasMany, belongsTo, belongsToMany
+        return $this->belongsTo(Faculty::class);
+    }
 }

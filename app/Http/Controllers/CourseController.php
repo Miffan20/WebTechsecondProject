@@ -67,6 +67,17 @@ class CourseController extends Controller
         return view('courses.show', compact('key'));
     }
 
+    public function edit(Course $key)
+    {
 
+        //return $key; // this shows the json-object
+
+        $faculties = Faculty::all();
+        return view('courses.edit', compact('key'))->with('faculties', $faculties);
+
+
+        //return view('courses.edit', compact('key')->with('faculties', $faculties)); this was taken from show.
+
+    }
 
 }

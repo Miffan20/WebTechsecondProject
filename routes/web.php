@@ -71,3 +71,7 @@ Route::get('courses/{key}', [CourseController::class, 'show'])
     ->name("courses.show");
 
 
+Route::get('courses/{key}/edit', [CourseController::class, 'edit'])
+    ->name("courses.edit");
+
+

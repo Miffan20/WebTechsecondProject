@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title')php artisan dusk --filter testTask4ShowCourse
+@section('title')
         {{$key->name}}
 
 @endsection
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="mt-3 d-grid gap-3">
-                    <a href="#" class="btn btn-primary" id="edit-course">Edit course</a>
+                    <a href="{{ route('courses.edit', $key->id) }}" class="btn btn-primary" id="edit-course">Edit course</a>
                     <form>
                         <button type="submit" class="btn btn-danger w-100" id="delete-course">Delete course</button>
                     </form>

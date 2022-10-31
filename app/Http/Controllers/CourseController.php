@@ -33,13 +33,14 @@ class CourseController extends Controller
 
         $course->name = $request->get('name');
         $course->description = $request->get('description');
-        $course->faculty_id = $request->get('faculty');
+        $course->faculty_id = $request->get('faculty'); //|unique:faculty doesnt work
         $course->code = $request->get('code');
         $course->ECTS = $request->get('ects');
 
         $course->save();
 
-        return redirect()->route('courses.index'); //works to redirect to homepage
+        //return redirect()->route('courses.index'); //works to redirect to homepage
+        return redirect()->route('courses.show',1); //just needs to redirect this to the current course id, if you just put parameter, it works just fine with 1, this however does not work: $course.$this->get('id')
 
 
         //return redirect()->action([CourseController::class, 'formRedirect'], ['id'=>$this]); // this does not work
@@ -56,14 +57,12 @@ class CourseController extends Controller
 
     }
 
-    public function redirectForm(Course $course)
-    {
-        return view('course.show', ['course' => $course]);
-    }
 
-    public function show(Course $course)
+
+    public function show(Course $key)
     {
-        dd($course);
+        return $key;
+        //return view('courses.show', compact('course'));
     }
 
 

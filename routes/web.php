@@ -38,13 +38,20 @@ Route::get('courses/create', [CourseController::class, 'form'])
         ->name('courses.form');
 
 
+/*
+ *
 
+Route::get('courses/{course}', [CourseController::class, 'show'])
+    ->name('courses.show');
 
+*/
 
+/*
+ // this is original course.show function, and show2 is original show view
 Route::get('courses/{course}', function() {
     return view('courses.show');
 })->name('courses.show');
-
+*/
 
 //post functions
 Route::post('/courses', [CourseController::class, 'getData'])
@@ -60,6 +67,7 @@ Route::get('/courses/{course}', [CourseController::class, 'redirectForm'])
 
 //this view created the object, but needs to be redirected to a showpage
 
-Route::get('courses/{course} ', [CourseController::class, 'show']);
+Route::get('courses/{key}', [CourseController::class, 'show'])
+    ->name("courses.show");
 
 

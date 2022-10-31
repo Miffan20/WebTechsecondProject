@@ -63,8 +63,8 @@ class CourseController extends Controller
 
     public function show(Course $key)
     {
-        return $key;
-        //return view('courses.show', compact('course'));
+        //return $key; // this shows the json-object
+        return view('courses.show', compact('key'));
     }
 
 

@@ -57,6 +57,9 @@ Route::get('courses/{course}', function() {
 Route::post('/courses', [CourseController::class, 'getData'])
     ->name("courses.store");
 
+Route::put('/courses/{key}', [CourseController::class, 'updateData'])
+    ->name("courses.storeEdit");
+
 /*
  // not used right now
 

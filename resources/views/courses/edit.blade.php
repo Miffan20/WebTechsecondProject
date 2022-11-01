@@ -4,10 +4,11 @@
 <body>
 
 
-<form id="course-form" action="{{ asset('/courses') }}" method="POST">
+<form id="course-form" action="{{ asset('/courses/'.$key->id)  }}" method="POST">
     @csrf
+    @method('PUT')
 
-    <label for="coursename">{{$key->name}}:</label><br>
+    <label for="coursename">Course name:</label><br>
     <input type="text" id="coursename" name="name" value="{{$key->name}}"><br>
 
 

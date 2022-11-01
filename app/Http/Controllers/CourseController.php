@@ -49,6 +49,34 @@ class CourseController extends Controller
         //return redirect()->route('courses.redirectForm'); //this has better chances
     }
 
+    public function updateData(Request $request, $id)
+    {
+
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+            'faculty'=>'required',
+            'code'=>'required',
+            'ects'=>'required|numeric'
+        ]);
+
+
+        $course = Course::find($id);
+
+        $course->name = $request->get('name');
+        $course->description = $request->get('description');
+        $course->faculty_id = $request->get('faculty'); //|unique:faculty doesnt work
+        $course->code = $request->get('code');
+        $course->ECTS = $request->get('ects');
+
+        $course->save();
+
+        return redirect()->route('courses.show',$course->id);
+    }
+
+
+
+
 
     public function index(){
         $faculties = Faculty::all();

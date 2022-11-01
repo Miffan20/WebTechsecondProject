@@ -108,4 +108,13 @@ class CourseController extends Controller
 
     }
 
+    public function destroy(Course $key)
+    {
+        $course = Course::find($key);
+
+        $course->each->delete();
+
+        return redirect()->route('courses.index');
+    }
+
 }

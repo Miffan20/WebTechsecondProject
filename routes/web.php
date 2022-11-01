@@ -77,4 +77,5 @@ Route::get('courses/{key}', [CourseController::class, 'show'])
 Route::get('courses/{key}/edit', [CourseController::class, 'edit'])
     ->name("courses.edit");
 
-
+Route::delete('courses/{key}', [CourseController::class, 'destroy'])
+    ->name("courses.destroy");

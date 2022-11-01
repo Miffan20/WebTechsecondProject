@@ -24,7 +24,10 @@
                 </div>
                 <div class="mt-3 d-grid gap-3">
                     <a href="{{ route('courses.edit', $key->id) }}" class="btn btn-primary" id="edit-course">Edit course</a>
-                    <form>
+
+                    <form action="{{ asset('/courses/'.$key->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
                         <button type="submit" class="btn btn-danger w-100" id="delete-course">Delete course</button>
                     </form>
                 </div>

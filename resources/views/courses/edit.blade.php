@@ -26,6 +26,8 @@
             <option value="{{$faculty->id}}">{{ $faculty->name }}</option>
         @endforeach
 
+        {{--Only thing needed is to default the select value to the correct faculty id--}}
+
 
         {{--
                  Attempt 1:

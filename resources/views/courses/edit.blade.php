@@ -23,7 +23,14 @@
     <label for="faculty">Faculty:</label><br>
     <select id="faculty" name="faculty">
         @foreach($faculties as $faculty)
-            <option value="{{$faculty->id}}">{{ $faculty->name }}</option>
+
+                @if(old('faculty_id', $key->faculty_id)==$faculty->id)
+                <option value={{$faculty->id}} selected > {{$faculty->name}}</option>
+            @else
+                <option value={{$faculty->id}} > {{$faculty->name}}</option>
+            @endif
+
+
         @endforeach
 
         {{--Only thing needed is to default the select value to the correct faculty id--}}
@@ -56,7 +63,7 @@
     </select><br>
 
     <label for="description">Description:</label><br>
-    <textarea id="description" name="description"> {{$key->description}}</textarea>
+    <textarea id="description" name="description">{{$key->description}}</textarea> {{--It was a function space here, that fucked it up!!!--}}
 
 
 

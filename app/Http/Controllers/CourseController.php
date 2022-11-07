@@ -23,7 +23,7 @@ class CourseController extends Controller
         $request->validate([
             'name'=>'required',
             'description'=>'required',
-            'faculty'=>'required|exists:faculties,id',
+            'faculty'=>'required', // |exists:faculties,id - removed untill task 5 is fixed
             'code'=>'required',
             'ects'=>'required|numeric'
         ]);

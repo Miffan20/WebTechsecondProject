@@ -1,7 +1,7 @@
 
 <h1>Edit course: {{$key->name}}</h1>
 
-<body >
+<body>
 
 
 <form id="course-form" action="{{ asset('/courses/'.$key->id)  }}" method="POST">
@@ -22,45 +22,9 @@
 
     <label for="faculty">Faculty:</label><br>
     <select id="faculty" name="faculty">
-
-            @foreach($faculties as $faculty)
-                <option value="{{$faculty->id}}" @selected(old('faculty') == $faculty)>{{ $faculty->name }} </option>
-            @endforeach
-
-
-
-{{--
-
-this was another try
-
-
-@foreach($faculties as $faculty)
-
-
-            <option  value ="{{$faculty->id}}"
-                     {{$faculty->id ==old('$faculty', $faculty->id) ? 'selected' : ''}}>
-                {{$faculty->name}}
-
-            </option>
-
-
+        @foreach($faculties as $faculty)
+            <option value="{{$faculty->id}}">{{ $faculty->name }}</option>
         @endforeach
-
-
-
-
-----------------------------------------------------------------------
-This was found on https://stackoverflow.com/questions/29148274/define-the-selected-option-with-the-old-input-in-laravel-blade
---------------------------------------------------------------------
-
-            <select name="version">
-                @foreach ($product->versions as $version)
-                    <option value="{{ $version }}" @selected(old('version') == $version)>
-                        {{ $version }}
-                    </option>
-                @endforeach
-            </select>
-        -}}
 
         {{--Only thing needed is to default the select value to the correct faculty id--}}
 
